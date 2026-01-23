@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa con Leaflet</title>
+
+  <!-- CSS de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+<body>
+
+  <h2>Ingresar coordenadas</h2>
+
+  <form id="formCoordenadas">
+    <label>
+      Latitud:
+      <input type="number" id="latitud" step="any" required>
+    </label>
+    <br><br>
+
+    <label>
+      Longitud:
+      <input type="number" id="longitud" step="any" required>
+    </label>
+    <br><br>
+
+    <button type="submit">Mostrar en el mapa</button>
+  </form>
+
+  <br>
+
+  <!-- Aquí se mostrará el mapa -->
+  <div id="mapa" style="height: 400px;"></div>
+
+  <!-- JS de Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Nuestro JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
