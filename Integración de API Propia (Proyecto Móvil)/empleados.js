@@ -21,6 +21,7 @@ const cargarEmpleados = () => {
         })
 }
 
+
 // Función encargada de manipular el DOM
 const mostrarEmpleados = (empleados) => {
     // 1. Seleccionamos el contenedor del HTML
@@ -43,7 +44,7 @@ const mostrarEmpleados = (empleados) => {
             <h3 class="practice-title">${empleado.Nombre + " " + empleado.Apellido_Paterno + " " +empleado.Apellido_Materno} </h3>
              <p><strong>Telefono:</strong> ${empleado.Telefono}</p>
             <p><strong>Correo:</strong> ${empleado.Correo}</p>
-        `;
+        `; 
        
         // Finalmente, agregamos la tarjeta completa al contenedor principal
         contenedorEmpleados.appendChild(tarjeta);
