@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi pagina de WEB</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
+    
   </head>
   <body class="bg-gray-300" onload="cargarProductos()">
     <nav class="bg-gray-900 text-white">
@@ -19,7 +21,8 @@
       </div>
     </nav>
     <main class="max-w-6xl mx-auto p-6">
-      <form class="flex items-center max-w-sm mx-auto space-x-2">
+        <!-- Use una plantilla de tailwindcss que encntre en internet, no use chat para la barra -->
+      <form class="flex items-center max-w-sm mx-auto space-x-2" onkeydown="return event.key !== 'Enter'">
         <label for="simple-search" class="sr-only">Search</label>
         <div class="relative w-full">
           <input
@@ -30,7 +33,10 @@
             required />
         </div>
         <button
-          id="buscar"
+          type="button"
+  id="buscar"
+  onclick="accionBuscar()"
+
           class="inline-flex items-center bg-blue-500 justify-center shrink-0 text-white bg-brand hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs rounded-base w-10 h-10 focus:outline-none">
           <svg
             class="w-5 h-5"
@@ -51,9 +57,12 @@
       </form>
       <br> 
 
-      <section id="contenedor-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section id="contenedor-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" >
         <!-- Contenedor vacío donde JS colocará las tarjetas -->
+        
       </section>
+
+
       <!-- Vinculamos nuestro script de lógica al final del body -->
       <script src="main.js"></script>
     </main>
