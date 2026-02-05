@@ -139,3 +139,90 @@ const mostrarProducto = (producto) => {
 
   contenedorProducto.appendChild(tarjeta);
 };
+
+
+
+// ========================================Pendiente==================================
+const guardarproducto=()=>{
+    //creamos las varioables de los elemntos con los que vamos a interactuar 
+    const titulo=document.getElementById("titulo").value
+    const precio=parseFloat(document.getElementById("precio").value)
+    const categoria=document.getElementById("categorias").value
+    const descripcion=document.getElementById("descripcion").value
+    const resultado=document.getElementById("mensaje-exito")
+
+    //validamos que los elementos no vengan vacios 
+    if(!titulo || !precio || !descripcion){
+        alert("Completa los campos obligatorios")
+        return
+    }
+
+    //creamos el objeto que se va por el body 
+    const producto={
+        title:titulo,
+        price:precio,
+        category:categoria,
+        description:descripcion,
+        thumbnail:'https://dummyjson.com/image/400x200/008080/ffffff?text='+titulo
+    }
+
+    //hacemos la peticion fetch con el metodo post
+    fetch("https://dummyjson.com/products/add",{
+        method:"POST",
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(producto)
+    })
+    .then(response=>response.json())
+    .then(data=>{
+        console.log("Respuesta del API", data)
+        resultado.style.display="block"
+        resultado.className =
+    "mt-4 p-4 rounded-md bg-lime-200 text-lime-800 border border-lime-400";
+        resultado.innerHTML=`
+        <strong>Producto Agregado correctamente!!!</strong><br>
+        Id Asignado : ${data.id}<br>
+        Nombre      : ${data.title}<br>
+        Precio      : $${data.price}.00  
+
+        `
+    })
+}
+
+
+
+const urlApiC = "https://dummyjson.com/products/category-list";
+
+const cargarCategorias = () => {
+  // Usamos fetch para hacer la petición HTTP
+  fetch(urlApiC)
+    .then((respuesta) => respuesta.json()) // Convertimos la respuesta cruda a formato JSON
+    .then((data) => {
+      // La API devuelve un objeto con una propiedad 'items' que contiene el array
+      const categorias = data;
+
+      console.log("Datos recibidos:", categorias); // Debugging en consola
+
+      // Llamamos a la función que se encarga de dibujar en pantalla
+      mostrarCategorias(categorias);
+    })
+    .catch((error) => {
+      // Buena práctica: Manejar errores por si falla la red o la API
+      console.error("Error al cargar las categorias:", error);
+      alert("Hubo un error al cargar los datos. Revisa la consola.");
+    });
+};
+
+// Función encargada de manipular el DOM
+const mostrarCategorias = (categorias) => {
+  const select  = document.getElementById("categorias");
+
+  select .innerHTML = "";
+  
+
+  // Recorremos cada producto
+  categorias.forEach((categoria) => {
+    const option = document.createElement("option");
+    option.textContent = categoria;
+    select.appendChild(option);
+  });
+};
