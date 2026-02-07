@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi pagina de WEB</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-300" onload="cargarProductos(); cargarCategoriasBus()">
+    <nav class="bg-gray-900 text-white">
+      <div
+        class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <span class="text-xl font-bold">MiSitio</span>
+        <ul class="flex gap-6">
+          <li>
+            <a href="../index.html" class="hover:text-gray-300">Inicio</a>
+          </li>
+          <li><a href="#" class="hover:text-gray-300">Servicios</a></li>
+          <li><a href="#" class="hover:text-gray-300">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="max-w-6xl mx-auto p-6">
+      <form
+        class="flex items-center max-w-sm mx-auto space-x-2"
+        onkeydown="return event.key !== 'Enter';">
+        <label for="simple-search" class="sr-only">Search</label>
+        <div class="relative w-full">
+          <input
+            type="text"
+            id="simple-search"
+            class="px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium rounded-base ps-9 text-heading text-sm focus:ring-brand focus:border-brand block w-full placeholder:text-body"
+            placeholder="Search branch name..."
+            required />
+        </div>
+        <button
+          type="button"
+          id="buscar"
+          onclick="accionBuscar()"
+          class="inline-flex items-center bg-blue-500 justify-center shrink-0 text-white bg-brand hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs rounded-base w-10 h-10 focus:outline-none">
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24">
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+          </svg>
+          <span class="sr-only">Icon description</span>
+        </button>
+
+        <a
+          href="add.html"
+          class="inline-flex items-center justify-center text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-base">
+          Agregar
+        </a>
+      </form>
+
+      <br />
+        <div class="mb-5">
+      <label class="block mb-2.5 text-sm font-medium text-heading"> Categorias</label>
+      <select id="categorias" class="hover:bg-cian-100 block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-gray-800 rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
+  
+    </select>
+    </div>
+    <br>
+
+      <div
+        class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
+        <table class="w-full text-left table-auto min-w-max">
+          <thead>
+            <tr>
+              <th class="w-2/5 p-4 border-b bg-slate-50">
+                <p
+                  class="block text-sm font-normal leading-none text-slate-500">
+                  Nombre
+                </p>
+              </th>
+              <th class="w-1/5 p-4 border-b bg-slate-50">
+                <p
+                  class="block text-sm font-normal leading-none text-slate-500">
+                  Categoria
+                </p>
+              </th>
+              <th class="w-1/5 p-4 border-b bg-slate-50">
+                <p
+                  class="block text-sm font-normal leading-none text-slate-500">
+                  Imagen
+                </p>
+              </th>
+              <th class="w-1/5 p-4 border-b bg-slate-50">
+                <p
+                  class="block text-sm font-normal leading-none text-slate-500"></p>
+              </th>
+            </tr>
+          </thead>
+          <!-- Aqui acaba el titulo -->
+
+          <tbody id="tabla-productos">
+            <!-- Aqui se va llenar -->
+          </tbody>
+        </table>
+      </div>
+      <!-- Vinculamos nuestro script de lógica al final del body -->
+
+      <!-- Paginado Botones-->
+      <!-- Paginado -->
+      <div class="flex justify-center gap-4 mt-6">
+        <button
+          onclick="paginado (0)"
+          class="inline-flex items-center justify-center px-4 py-2 rounded-lg font-bold bg-slate-200 text-slate-700 hover:bg-slate-300">
+          ⬅ Anterior
+        </button>
+
+        <button
+          onclick="paginado (1)"
+          class="inline-flex items-center justify-center px-4 py-2 rounded-lg font-bold bg-slate-200 text-slate-700 hover:bg-slate-300">
+          Siguiente ➡
+        </button>
+      </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-6 mt-8">
+      <div class="flex justify-center">
+        <p class="text-white-700 leading-relaxed">Gracias por visitaros</p>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

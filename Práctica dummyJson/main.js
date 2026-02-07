@@ -3,6 +3,7 @@ const urlApi = "https://dummyjson.com/products";
 const params = new URLSearchParams(window.location.search);
 const idProducto = params.get("id");
 
+
 const cargarProductos = () => {
   // Usamos fetch para hacer la petición HTTP
   fetch(urlApi)

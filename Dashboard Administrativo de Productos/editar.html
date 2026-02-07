@@ -6,7 +6,7 @@
     <title>Agregar Nuevo</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-300" onload="cargarCategorias()">
+  <body class="bg-gray-300" onload="cargarCategorias(); cargarEditarProducto();">
     <nav class="bg-gray-900 text-white">
       <div
         class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -46,11 +46,16 @@
       <textarea id="descripcion" rows="4" placeholder="Descipcion" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-md focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs"> </textarea>
     </div>
 
+       <div class="mb-5">
+            <label class="block mb-2.5 text-sm font-medium text-heading">URL imagen (opcional):</label>
+            <input type="text" id="imagen" placeholder="https://..." class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-md focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs">
+        </div>
+
     <button class=" block  text-sm text-gray-800 bg-gray-100 hover:text-gray-900 px-2 py-1 rounded hover:bg-gray-100 transition" onclick="window.location.href='../'">- come Back</button>
 
-    <button class=" block mt-3 text-gray-800 bg-blue-300 rounded-md box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none" onclick="guardarproducto()">Guardar Producto...</button>
+    <button class=" block mt-3 text-gray-800 bg-blue-300 rounded-md box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none" onclick="editarProducto()">Editar Producto...</button>
     <div id="mensaje-exito"></div>
-    <script src="main.js"></script>
+
 
 
 </main>
