@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi pagina de WEB</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+  </head>
+  <body class="bg-gray-300" onload="cargarPersonajes()">
+    <nav class="bg-gray-900 text-white">
+      <div
+        class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <span class="text-xl font-bold">MiSitio</span>
+        <ul class="flex gap-6">
+          <li><a href="../index.html" class="hover:text-gray-300">Inicio</a></li>
+          <li><a href="#" class="hover:text-gray-300">Servicios</a></li>
+          <li><a href="#" class="hover:text-gray-300">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="max-w-6xl mx-auto p-6">
+  
+
+      <br> 
+
+      <section id="contenedor-personajes" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" >
+        <!-- Contenedor vacío donde JS colocará las tarjetas -->
+        
+      </section>
+
+
+      <!-- Vinculamos nuestro script de lógica al final del body -->
+      <script src="main.js"></script>
+    </main>
+
+       <footer class="bg-gray-900 text-white p-6 mt-8">
+        <div class="flex justify-center">
+<p class="text-white-700 leading-relaxed">Gracias por visitaros</p>
+</div>
+        
+    </footer>
+  </body>
+</html>
