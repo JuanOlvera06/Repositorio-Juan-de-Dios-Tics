@@ -3,11 +3,16 @@ const urlApi = "https://dummyjson.com/products";
 const params = new URLSearchParams(window.location.search);
 const idProducto = params.get("id");
 
+
 let skipeado = 0;
 const limite = 10;
 let totalProductos = 0;
 let texto="";
 
+//listado de apis publicas en github
+//portafolios 
+//hay un endpoint del APi de git hub, que no require autentificacion https//api.github/user/Usuario(Nombre de Usuario)/repos
+//enlace hacia un end point 
 let filtro=0;
 let categoria="";
 // 0 buscado normal o mostrar 1 es por categoria
