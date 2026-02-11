@@ -1,44 +1,14 @@
-const urlApi = "https://thesimpsonsapi.com/api/characters";
-const urlImgApi = "https://cdn.thesimpsonsapi.com/500/character/"
-
+const urlApi = "https://api.disneyapi.dev/character";
 const params = new URLSearchParams(window.location.search);
 const idPersonaje = params.get("id");
 
-
-let paginaactual = 1;
-let totalpaginas = 0;
-
-const paginado = (numero) => {
-
-
-  if (numero === 0) {
-    if (paginaactual > 1) {
-      paginaactual = paginaactual - 1;
-      cargarPersonajes();
-    } else {
-      alert("ya estás en la primera página");
-    }
-
-  // ADELANTE
-  } else if (numero === 1) {
-    if (paginaactual < totalpaginas) {
-      paginaactual = paginaactual + 1;
-      cargarPersonajes();
-    } else {
-      alert("no hay más productos");
-    }
-  }
-
-};
-
 const cargarPersonajes = () => {
   // Usamos fetch para hacer la petición HTTP
-  fetch(urlApi+"?page="+paginaactual)
+  fetch(urlApi)
     .then((respuesta) => respuesta.json()) // Convertimos la respuesta cruda a formato JSON
     .then((data) => {
       // La API devuelve un objeto con una propiedad 'items' que contiene el array
-      const personajes = data.results;
-      totalpaginas=data.pages;
+      const personajes = data.data;
 
       console.log("Datos recibidos:", personajes); // Debugging en consola
 
@@ -68,14 +38,12 @@ const mostrar = (personajes) => {
     tarjeta.classList.add(...clases.split(" "));
 
     tarjeta.innerHTML = `
-    <a href="vistaDetalle.html?id=${personaje.id}">
-      <img src="${urlImgApi+personaje.id+".webp"}" alt="${personaje.name}"
+    <a href="vistaDetalle.html?id=${personaje._id}">
+      <img src="${personaje.imageUrl}" alt="${personaje.name}"
            style="object-fit:contain;height:300px;width:100%;">
              </a>
              <br>
       <h3>${personaje.name}</h3>
-      <p><strong>Edad:</strong> ${personaje.age}</p>
-      <p><strong>Ocupacion:</strong> $${personaje.occupation}</p>
     `;
 
     contenedorper.appendChild(tarjeta);
@@ -125,10 +93,10 @@ const mostrarProducto = (personaje) => {
            style="object-fit:contain;height:300px;width:100%;">
       <h3>${personaje.name}</h3>
       <p><strong>Edad:</strong> ${personaje.age}</p>
-      <p><strong>Ocupacion: </strong>${personaje.occupation}</p>
-      <p><strong>Cumpleaños: </strong>${personaje.birthdate}</p>
-      <p><strong>Genero: </strong>${personaje.gender}</p>
-        <p><strong>Descripcion: </strong>${personaje.description}</p>
+      <p><strong>Ocupacion:</strong>${personaje.occupation}</p>
+      <p><strong>Cumpleaños</strong>${personaje.birthdate}</p>
+      <p><strong>Genero</strong>${personaje.gender}</p>
+        <p><strong>Descripcion</strong>${personaje.description}</p>
       
     `;
 
