@@ -75,7 +75,7 @@ const mostrar = (personajes) => {
              <br>
       <h3>${personaje.name}</h3>
       <p><strong>Edad:</strong> ${personaje.age}</p>
-      <p><strong>Ocupacion:</strong> $${personaje.occupation}</p>
+      <p><strong>Ocupacion:</strong> ${personaje.occupation}</p>
     `;
 
     contenedorper.appendChild(tarjeta);
